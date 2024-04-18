@@ -7,7 +7,7 @@
         <h1 class="h3 mb-0 text-gray-800">Products</h1>
         <div>
             <a href="{{ route('products.create') }}" class="btn btn-success">Add Product <i class="fas fa-plus"></i></a>
-            <a href="{{ route('products.pdf') }}" class="btn btn-primary">Print <i class="fas fa-print"></i></a>
+            <a href="{{ route('products.productsStockPrint') }}" class="btn btn-primary">Print <i class="fas fa-print"></i></a>
         </div>
     </div>
     <hr />

@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Product List</title>
+    <title>Product Stock List</title>
     <style>
         body { font-family: Arial, sans-serif; }
         table { width: 100%; border-collapse: collapse; }
         th, td { border: 1px solid #ddd; padding: 8px; }
         th { background-color: #f2f2f2; }
+        span { font-weight: bold; }
     </style>
 </head>
 <body>
-    <h2>E-Warehouse | Product List</h2>
+    <h2>E-Warehouse | Product Stock List</h2>
+    <p><span>Date: </span>{{ $date }}</p>
     <table>
         <thead>
             <tr>
@@ -33,5 +35,7 @@
             @endforeach
         </tbody>
     </table>
+    <p><span>Printed by: </span>{{ $user->name }}</p>
+    <p><span>Level: </span>{{ $user->level }}</p>
 </body>
 </html>

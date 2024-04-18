@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
     });
  
     Route::get('/profile', [App\Http\Controllers\AuthController::class, 'profile'])->name('profile');
-    Route::get('products/pdf', [ProductController::class, 'pdf'])->name('products.pdf');
+    Route::get('products/productsStockPrint', [ProductController::class, 'productStockPrintPDF'])->name('products.productsStockPrint');
+    Route::get('/products/total-print', [ProductController::class, 'totalProductsPrintPDF'])->name('products.totalProductsPrint');
 
 });

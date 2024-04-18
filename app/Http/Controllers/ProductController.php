@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use Dompdf\Dompdf;
 use Dompdf\Options;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -97,20 +98,52 @@ class ProductController extends Controller
         return redirect()->route('products')->with('success', 'product deleted successfully');
     }
 
-    public function pdf()
+    public function productStockPrintPDF()
     {
+        $user = Auth::user();
+        $level = Auth::user();
         $products = Product::all();
-
+    
         $pdf = new Dompdf();
-        $pdf->loadHtml(view('products.pdf', compact('products')));
-
-        // (Optional) Set paper size and orientation
+        $pdf->loadHtml(view('products.productsStockPrint', [
+            'user' => $user,
+            'level' => $level,
+            'products' => $products,
+            'date' => date('Y-m-d H:i:s'),
+        ]));
+    
+        // Set paper size and orientation
         $pdf->setPaper('A4', 'landscape');
-
+    
         // Render PDF (optional: save to file)
         $pdf->render();
-
+    
         // Output PDF to browser
-        return $pdf->stream('products.pdf');
+        return $pdf->stream('products-stock-list_' . date('Y-m-d_H-i-s') . '.pdf');
     }
+    
+
+    public function totalProductsPrintPDF()
+    {   
+        $user = Auth::user();
+        $level = Auth::user();
+        $totalElectronics = Product::where('category', 'Electronics')->count();
+        $totalTools = Product::where('category', 'Tools')->count();
+        $totalFurniture = Product::where('category', 'Furniture')->count();
+    
+        $pdf = new Dompdf();
+        $pdf->loadHtml(view('products.totalProductsPrint', [
+            'user' => $user,
+            'level' => $level,
+            'totalElectronics' => $totalElectronics,
+            'totalTools' => $totalTools,
+            'totalFurniture' => $totalFurniture,
+            'date' => date('Y-m-d H:i:s'),
+        ]));
+    
+        $pdf->setPaper('A4', 'landscape');
+        $pdf->render();
+        return $pdf->stream('total_products_' . date('Y-m-d') . '.pdf');
+    }
+    
 }
