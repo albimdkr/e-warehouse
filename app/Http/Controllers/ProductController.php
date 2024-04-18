@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class ProductController extends Controller
 {
@@ -70,8 +72,6 @@ class ProductController extends Controller
         return view('products.edit', compact('product', 'categories'));
     }
 
-    
-    
 
     /**
      * Update the specified resource in storage.
@@ -95,5 +95,22 @@ class ProductController extends Controller
         $product->delete();
   
         return redirect()->route('products')->with('success', 'product deleted successfully');
+    }
+
+    public function pdf()
+    {
+        $products = Product::all();
+
+        $pdf = new Dompdf();
+        $pdf->loadHtml(view('products.pdf', compact('products')));
+
+        // (Optional) Set paper size and orientation
+        $pdf->setPaper('A4', 'landscape');
+
+        // Render PDF (optional: save to file)
+        $pdf->render();
+
+        // Output PDF to browser
+        return $pdf->stream('products.pdf');
     }
 }

@@ -41,7 +41,7 @@
         
         <div class="row">
             <div class="col-xl-12">
-                <button class="btn btn-warning">Update</button>
+                <button class="btn btn-warning">Update <i class="fas fa-edit"></i></button>
             </div>
         </div>
     </form>

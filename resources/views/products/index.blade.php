@@ -5,7 +5,10 @@
 @section('contents')
     <div class="d-flex align-items-center justify-content-between">
         <h1 class="h3 mb-0 text-gray-800">Products</h1>
-        <a href="{{ route('products.create') }}" class="btn btn-primary">Add Product</a>
+        <div>
+            <a href="{{ route('products.create') }}" class="btn btn-success">Add Product <i class="fas fa-plus"></i></a>
+            <a href="{{ route('products.pdf') }}" class="btn btn-primary">Print <i class="fas fa-print"></i></a>
+        </div>
     </div>
     <hr />
     @if(Session::has('success'))
@@ -37,12 +40,12 @@
                         <td class="align-middle">{{ $rs->category }}</td>  
                         <td class="align-middle">
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                <a href="{{ route('products.show', $rs->id) }}" type="button" class="btn btn-secondary">Detail</a>
-                                <a href="{{ route('products.edit', $rs->id)}}" type="button" class="btn btn-warning">Edit</a>
+                                <a href="{{ route('products.show', $rs->id) }}" type="button" class="btn btn-secondary"><i class="fas fa-info-circle"></i></a>
+                                <a href="{{ route('products.edit', $rs->id)}}" type="button" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                                 <form action="{{ route('products.destroy', $rs->id) }}" method="POST" type="button" class="btn btn-danger p-0" onsubmit="return confirm('Delete?')">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger m-0">Delete</button>
+                                    <button class="btn btn-danger m-0"><i class="fas fa-trash-alt"></i></button>
                                 </form>
                             </div>
                         </td>

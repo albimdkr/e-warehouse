@@ -37,7 +37,7 @@
         
         <div class="row">
             <div class="col-xl-12">
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" class="btn btn-success">Submit <i class="fas fa-save"></i></button>
             </div>
         </div>
     </form>
