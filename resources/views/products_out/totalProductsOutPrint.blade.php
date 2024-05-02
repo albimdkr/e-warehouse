@@ -14,7 +14,7 @@
     </style>
 </head>
 <body>
-    <h2>E-Warehouse | Total Products</h2>
+    <h2>E-Warehouse | Total Products Outcome</h2>
     <p><span>Date: </span>{{ $date }}</p>
     <table>
         <thead>
@@ -33,6 +33,6 @@
         </tbody>
     </table>
     <p><span>Printed by: </span>{{ $user->name }}</p>
-    <p><span>Level: </span>{{ $user->level }}</p>
+    <p><span>Role: </span>{{ $user->role }}</p>
 </body>
 </html>

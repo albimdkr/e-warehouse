@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Total Products</title>
+    <title>Total Products Income</title>
     <style>
         body { font-family: Arial, sans-serif; }
         table { width: 100%; border-collapse: collapse; }
@@ -14,7 +14,7 @@
     </style>
 </head>
 <body>
-    <h2>E-Warehouse | Total Products</h2>
+    <h2>E-Warehouse | Total Products Income</h2>
     <p><span>Date: </span>{{ $date }}</p>
     <table>
         <thead>
@@ -33,6 +33,6 @@
         </tbody>
     </table>
     <p><span>Printed by: </span>{{ $user->name }}</p>
-    <p><span>Level: </span>{{ $user->level }}</p>
+    <p><span>Role: </span>{{ $user->role }}</p>
 </body>
 </html>

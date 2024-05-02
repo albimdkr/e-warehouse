@@ -36,6 +36,6 @@
         </tbody>
     </table>
     <p><span>Printed by: </span>{{ $user->name }}</p>
-    <p><span>Level: </span>{{ $user->level }}</p>
+    <p><span>Role: </span>{{ $user->role }}</p>
 </body>
 </html>
