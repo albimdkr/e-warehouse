@@ -11,12 +11,12 @@ fetch("/api/getData.php")
         var myPieChart = new Chart(ctx, {
             type: "doughnut",
             data: {
-                labels: ["Electronics", "Tools", "Furniture"],
+                labels: ["Electronic", "Tool", "Furniture"],
                 datasets: [
                     {
                         data: [
-                            data.totalElectronics,
-                            data.totalTools,
+                            data.totalElectronic,
+                            data.totalTool,
                             data.totalFurniture,
                         ],
                         backgroundColor: ["#4e73df", "#1cc88a", "#36b9cc"],

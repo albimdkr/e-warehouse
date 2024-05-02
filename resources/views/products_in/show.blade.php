@@ -5,7 +5,7 @@
 @section('contents')
     <div class="d-flex align-items-center justify-content-between">
         <h1 class="h3 mb-0 text-gray-800">Detail</h1>
-        <a href="{{ route('products') }}" class="btn btn-secondary">Back</a>
+        <a href="{{ route('products_in') }}" class="btn btn-secondary">Back</a>
     </div>
     <hr />
     <div class="row">

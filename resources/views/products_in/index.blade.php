@@ -1,13 +1,13 @@
 @extends('layouts.app')
   
-{{-- @section('title', 'Products') --}}
+{{-- @section('title', 'Products_in') --}}
   
 @section('contents')
     <div class="d-flex align-items-center justify-content-between">
-        <h1 class="h3 mb-0 text-gray-800">Products</h1>
+        <h1 class="h3 mb-0 text-gray-800">Products Income</h1>
         <div>
-            <a href="{{ route('products.create') }}" class="btn btn-success">Add Product <i class="fas fa-plus"></i></a>
-            <a href="{{ route('products.productsStockPrint') }}" class="btn btn-primary">Print <i class="fas fa-print"></i></a>
+            <a href="{{ route('products_in.create') }}" class="btn btn-success">Add Product <i class="fas fa-plus"></i></a>
+            <a href="{{ route('products_in.productsStockPrint') }}" class="btn btn-primary">Print <i class="fas fa-print"></i></a>
         </div>
     </div>
     <hr />
@@ -40,9 +40,9 @@
                         <td class="align-middle">{{ $rs->category }}</td>  
                         <td class="align-middle">
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                <a href="{{ route('products.show', $rs->id) }}" type="button" class="btn btn-secondary"><i class="fas fa-info-circle"></i></a>
-                                <a href="{{ route('products.edit', $rs->id)}}" type="button" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                <form action="{{ route('products.destroy', $rs->id) }}" method="POST" type="button" class="btn btn-danger p-0" onsubmit="return confirm('Delete?')">
+                                <a href="{{ route('products_in.show', $rs->id) }}" type="button" class="btn btn-secondary"><i class="fas fa-info-circle"></i></a>
+                                <a href="{{ route('products_in.edit', $rs->id)}}" type="button" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                <form action="{{ route('products_in.destroy', $rs->id) }}" method="POST" type="button" class="btn btn-danger p-0" onsubmit="return confirm('Delete?')">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger m-0"><i class="fas fa-trash-alt"></i></button>

@@ -15,17 +15,23 @@ class DummyUsersSeeder extends Seeder
     {
         $userData = [
             [
-                'name' => 'Operator',
-                'email' => 'operator@gmail.com',
-                'role' => 'operator',
-                'password' => bcrypt('12345'),
-            ],
-            [
-                'name' => 'Marketing',
-                'email' => 'marketing@gmail.com',
-                'role' => 'marketing',
+                'name' => 'Admin',
+                'email' => 'admin@gmail.com',
+                'role' => 'admin',
                 'password' => bcrypt('12345'),
             ]
+            // [
+            //     'name' => 'Operator',
+            //     'email' => 'operator@gmail.com',
+            //     'role' => 'operator',
+            //     'password' => bcrypt('12345'),
+            // ],
+            // [
+            //     'name' => 'Marketing',
+            //     'email' => 'marketing@gmail.com',
+            //     'role' => 'marketing',
+            //     'password' => bcrypt('12345'),
+            // ]
         ];
 
         foreach ($userData as $key => $val) {

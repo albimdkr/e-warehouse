@@ -7,7 +7,7 @@
         <h1 class="h3 mb-0 text-gray-800">Add Product</h1>
     </div>
     <hr />
-    <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('products_in.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row mb-3">
             <div class="col">

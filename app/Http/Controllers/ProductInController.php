@@ -3,20 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Product;
+use App\Models\Products_in;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 use Illuminate\Support\Facades\Auth;
 
-class ProductController extends Controller
+class ProductInController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $product = Product::orderBy('created_at', 'DESC')->get();
-        return view('products.index', compact('product'));
+        $product = Products_in::orderBy('created_at', 'DESC')->get();
+        return view('products_in.index', compact('product'));
     }
 
     /**
@@ -24,8 +24,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        // Ambil data kategori unik dari tabel products
-        $categories = Product::select('category')->distinct()->get();
+        // Ambil data kategori unik dari tabel products_in
+        $categories = Products_in::select('category')->distinct()->get();
         
         // Buat array kosong untuk opsi kategori
         $categoryOptions = [];
@@ -35,7 +35,7 @@ class ProductController extends Controller
             $categoryOptions[$category->category] = $category->category;
         }
     
-        return view('products.create', ['categories' => $categoryOptions]);
+        return view('products_in.create', ['categories' => $categoryOptions]);
     }
     
 
@@ -44,9 +44,9 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        Product::create($request->all());
+        Products_in::create($request->all());
  
-        return redirect()->route('products')->with('success', 'Product added successfully');
+        return redirect()->route('products_in')->with('success', 'Product added successfully');
     }
 
     /**
@@ -54,9 +54,9 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        $product = Product::findOrFail($id);
+        $product = Products_in::findOrFail($id);
   
-        return view('products.show', compact('product'));
+        return view('products_in.show', compact('product'));
     }
 
     /**
@@ -64,13 +64,13 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        $product = Product::findOrFail($id);
+        $product = Products_in::findOrFail($id);
     
         // Ambil data kategori unik dari tabel products
-        $categories = Product::distinct()->pluck('category');
+        $categories = Products_in::distinct()->pluck('category');
         
         // Kirim data product dan categories ke view
-        return view('products.edit', compact('product', 'categories'));
+        return view('products_in.edit', compact('product', 'categories'));
     }
 
 
@@ -79,11 +79,11 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $product = Product::findOrFail($id);
+        $product = Products_in::findOrFail($id);
   
         $product->update($request->all());
   
-        return redirect()->route('products')->with('success', 'product updated successfully');
+        return redirect()->route('products_in')->with('success', 'product updated successfully');
     }
 
     /**
@@ -91,21 +91,21 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        $product = Product::findOrFail($id);
+        $product = Products_in::findOrFail($id);
   
         $product->delete();
   
-        return redirect()->route('products')->with('success', 'product deleted successfully');
+        return redirect()->route('products_in')->with('success', 'product deleted successfully');
     }
 
     public function productStockPrintPDF()
     {
         $user = Auth::user();
         $level = Auth::user();
-        $products = Product::all();
+        $products = Products_in::all();
     
         $pdf = new Dompdf();
-        $pdf->loadHtml(view('products.productsStockPrint', [
+        $pdf->loadHtml(view('products_in.productsStockPrint', [
             'user' => $user,
             'level' => $level,
             'products' => $products,
@@ -127,12 +127,12 @@ class ProductController extends Controller
     {   
         $user = Auth::user();
         $level = Auth::user();
-        $totalElectronics = Product::where('category', 'Electronics')->count();
-        $totalTools = Product::where('category', 'Tools')->count();
-        $totalFurniture = Product::where('category', 'Furniture')->count();
+        $totalElectronics = Products_in::where('category', 'Electronic')->count();
+        $totalTools = Products_in::where('category', 'Tool')->count();
+        $totalFurniture = Products_in::where('category', 'Furniture')->count();
     
         $pdf = new Dompdf();
-        $pdf->loadHtml(view('products.totalProductsPrint', [
+        $pdf->loadHtml(view('products_in.totalProductsPrint', [
             'user' => $user,
             'level' => $level,
             'totalElectronics' => $totalElectronics,

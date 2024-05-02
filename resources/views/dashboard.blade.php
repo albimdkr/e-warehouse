@@ -8,10 +8,12 @@
       <!-- Page Heading -->
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
           <h1 class="h3 mb-0 text-gray-800">Welcome | E-Warehouse</h1>
-          <a href="{{ route('products.totalProductsPrint') }}" class="btn btn-primary">Print <i class="fas fa-print"></i></a>
+          <a href="{{ route('products_in.totalProductsPrint') }}" class="btn btn-primary">Print <i class="fas fa-print"></i></a>
       </div>
 
       {{-- Card --}}
+      <hr>
+      <h2 class="h3 mb-0 text-gray-800 mb-3">Products Income</h2>
       <div class="row">
           <!-- Earnings (Monthly) Card Example -->
           <div class="col-xl-3 col-md-6 mb-4">
@@ -20,7 +22,7 @@
                       <div class="row no-gutters align-items-center">
                           <div class="col mr-2">
                               <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Total Products</div>
-                              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalProducts }}</div>
+                              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalProductsIn }}</div>
                           </div>
                           <div class="col-auto">
                               <i class="fas fa-boxes fa-2x text-secondary"></i>
@@ -37,7 +39,7 @@
                       <div class="row no-gutters align-items-center">
                           <div class="col mr-2">
                               <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Electronics</div>
-                              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalElectronics }}</div>
+                              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalElectronic }}</div>
                           </div>
                           <div class="col-auto">
                             <i class="fas fa-boxes fa-2x text-primary"></i>
@@ -57,7 +59,7 @@
                               </div>
                               <div class="row no-gutters align-items-center">
                                   <div class="col-auto">
-                                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $totalTools }}</div>
+                                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $totalTool }}</div>
                                   </div>
                               </div>
                           </div>
@@ -89,7 +91,6 @@
       </div>
 
       {{-- Chart --}}
-      @can('admin', Auth::user()->level)
       <div class="row">
           <!-- Pie Chart -->
           <div class="col-xl-12 col-lg-5">
@@ -97,7 +98,7 @@
                   <!-- Card Header - Dropdown -->
                   <div
                       class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                      <h6 class="m-0 font-weight-bold text-primary">Category Overview</h6>
+                      <h6 class="m-0 font-weight-bold text-primary">Category Overview Income</h6>
                   </div>
                   <!-- Card Body -->
                   <div class="card-body">
@@ -119,13 +120,12 @@
               </div>
           </div>
       </div>
-      @endcan
     </div>
     <!-- /.container-fluid -->
 
     <script>
-        var totalElectronics = {{ $totalElectronics }};
-        var totalTools = {{ $totalTools }};
+        var totalElectronic = {{ $totalElectronic }};
+        var totalTool = {{ $totalTool }};
         var totalFurniture = {{ $totalFurniture }};
     </script>
 @endsection
