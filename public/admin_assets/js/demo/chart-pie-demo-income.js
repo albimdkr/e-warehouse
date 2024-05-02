@@ -4,10 +4,10 @@
 Chart.defaults.global.defaultFontColor = "#858796";
 
 // Pie Chart Example
-fetch("/api/getData.php")
+fetch("/api/getDataIncome.php")
     .then((response) => response.json())
     .then((data) => {
-        var ctx = document.getElementById("myPieChart");
+        var ctx = document.getElementById("myPieChartIn");
         var myPieChart = new Chart(ctx, {
             type: "doughnut",
             data: {
@@ -15,9 +15,9 @@ fetch("/api/getData.php")
                 datasets: [
                     {
                         data: [
-                            data.totalElectronic,
-                            data.totalTool,
-                            data.totalFurniture,
+                            data.totalElectronicIn,
+                            data.totalToolIn,
+                            data.totalFurnitureIn,
                         ],
                         backgroundColor: ["#4e73df", "#1cc88a", "#36b9cc"],
                         hoverBackgroundColor: ["#2e59d9", "#17a673", "#2c9faf"],

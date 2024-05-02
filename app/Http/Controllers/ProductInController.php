@@ -143,7 +143,7 @@ class ProductInController extends Controller
     
         $pdf->setPaper('A4', 'landscape');
         $pdf->render();
-        return $pdf->stream('total_products_' . date('Y-m-d') . '.pdf');
+        return $pdf->stream('total_products_in_' . date('Y-m-d') . '.pdf');
     }
     
 }

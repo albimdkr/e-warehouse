@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Products_in;
+use App\Models\Products_out;
 
 class DashboardController extends Controller
 {
@@ -13,11 +14,16 @@ class DashboardController extends Controller
     public function index()
     {
         $totalProductsIn = Products_in::count();
-        $totalElectronic = Products_in::where('category', 'Electronic')->count();
-        $totalTool = Products_in::where('category', 'Tool')->count();
-        $totalFurniture = Products_in::where('category', 'Furniture')->count();
+        $totalElectronicIn = Products_in::where('category', 'Electronic')->count();
+        $totalToolIn = Products_in::where('category', 'Tool')->count();
+        $totalFurnitureIn = Products_in::where('category', 'Furniture')->count();
+
+        $totalProductsOut = Products_out::count();
+        $totalElectronicOut = Products_out::where('category', 'Electronic')->count();
+        $totalToolOut = Products_out::where('category', 'Tool')->count();
+        $totalFurnitureOut = Products_out::where('category', 'Furniture')->count();
     
-        return view('dashboard', compact('totalProductsIn', 'totalElectronic', 'totalTool', 'totalFurniture'));
+        return view('dashboard', compact('totalProductsIn', 'totalElectronicIn', 'totalToolIn', 'totalFurnitureIn', 'totalProductsOut', 'totalElectronicOut', 'totalToolOut', 'totalFurnitureOut'));
     }
     
 
