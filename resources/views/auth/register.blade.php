@@ -14,6 +14,9 @@
   <!-- Custom styles for this template-->
   <link href="{{ asset('admin_assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
+  {{-- CSS --}}
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
   {{-- Bootstrap 5 --}}
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -80,6 +83,16 @@
                     @enderror
                   </div>
                 </div>
+                <div class="form-group">
+                  <select class="form-control @error('role')is-invalid @enderror" id="role" name="role">
+                      <option value="">Pilih Role</option>
+                      <option value="Operator">Operator</option>
+                      <option value="Marketing">Marketing</option>
+                  </select>
+                  @error('role')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                  @enderror
+              </div>              
                 <button type="submit" class="btn btn-primary btn-user btn-block">Register Account</button>
               </form>
               <hr>

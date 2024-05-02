@@ -21,14 +21,15 @@ class AuthController extends Controller
         Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email',
-            'password' => 'required|confirmed'
+            'password' => 'required|confirmed',
+            'role' => 'required|in:Operator,Marketing',
         ])->validate();
   
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'level' => 'User'
+            'role' => $request->level,
         ]);
   
         return redirect()->route('login');
@@ -53,7 +54,7 @@ class AuthController extends Controller
         }
   
         $request->session()->regenerate();
-  
+
         return redirect()->route('dashboard');
     }
   

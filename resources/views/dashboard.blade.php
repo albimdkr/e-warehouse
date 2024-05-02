@@ -89,6 +89,7 @@
       </div>
 
       {{-- Chart --}}
+      @can('admin', Auth::user()->level)
       <div class="row">
           <!-- Pie Chart -->
           <div class="col-xl-12 col-lg-5">
@@ -118,6 +119,7 @@
               </div>
           </div>
       </div>
+      @endcan
     </div>
     <!-- /.container-fluid -->
 
