@@ -45,22 +45,42 @@
                     <li class="nav-item">
                         <a class="nav-link mx-2" href="#contact">Contact</a>
                     </li>
-                    <li class="nav-item dropdown">
-                    <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Account
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="{{ route('login') }}">Login</a></li>
-                        <li><a class="dropdown-item" href="{{ route('register') }}">Register</a></li>
-                    </ul>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2" href="{{ route('login') }}">Login</a>
                     </li>
-                </ul>
                 </div>
             </div>
         </nav>
 
+
         {{-- Hero --}}
-        <div class="container-fluid px-4 py-5 my-5 text-center">
+        <div class="container py-8 mt-4">
+            <div class="row flex-lg-row-reverse align-items-center g-5">
+                <div class="col-10 mx-auto col-sm-8 col-lg-6">
+                    <img class="img-fluid" src="{{ asset('admin_assets/img/undraw_logistics.svg') }}" width="" height="783" srcset="" sizes="" alt="">
+                </div>
+                <div class="col-lg-6">
+                    <div class="lc-block mb-3">
+                        <div editable="rich">
+                            <h5 class="display-5 fw-bold">E-Warehouse <span class="text-primary">Management App</span></h5>
+                        </div>
+                    </div>
+    
+                    <div class="lc-block mb-3">
+                        <div editable="rich">
+                            <p class="lead paragraf">Simplicity & Efficiently Manage Your Warehouse</p>
+                        </div>
+                    </div>
+    
+                    <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-primary px-4 me-md-2" href="login.php" role="button">Login</a>
+                        <a class="btn btn-outline-secondary px-4" href="#about" role="button">About</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- Hero --}}
+        {{-- <div class="container-fluid px-4 py-5 my-5 text-center">
             <div class="lc-block mb-4">
                 <div editable="rich">
                     <h2 class="display-2 fw-bold">Warehouse <span class="text-primary">Management App</span></h2>
@@ -79,17 +99,20 @@
             <div class="lc-block d-grid gap-2 d-sm-flex justify-content-sm-center">
                 <img class="img-fluid" src="{{ asset('admin_assets/img/undraw_logistics.svg') }}" width="" height="783" srcset="" sizes="" alt="">
             </div>
-        </div>
+        </div> --}}
 
         {{-- Quotes --}}
-        <figure class="text-center">
-            <blockquote class="blockquote">
-              <h3>Simplicity is about subtracting the obvious and adding the meaningful.</h3>
-            </blockquote>
-            <figcaption class="blockquote-footer" style="font-size:1.5em;">
-                John Maeda<cite title="Source Title"></cite>
-            </figcaption>
-        </figure>
+        <div class="mt-5">
+            <figure class="text-center">
+                <blockquote class="blockquote">
+                  <h3>Simplicity is about subtracting the obvious and adding the meaningful.</h3>
+                </blockquote>
+                <figcaption class="blockquote-footer" style="font-size:1.5em;">
+                    John Maeda<cite title="Source Title"></cite>
+                </figcaption>
+            </figure>
+
+        </div>
 
         {{-- About --}}
         <div class="container py-6 py-5" id="about">

@@ -27,8 +27,8 @@
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-6">
-                        <label class="labels">Level</label>
-                        <input type="text" name="phone" class="form-control" placeholder="Level" value="{{ auth()->user()->level }}">
+                        <label class="labels">Role</label>
+                        <input type="text" name="phone" class="form-control" placeholder="Level" value="{{ auth()->user()->role }}">
                     </div>
                     <div class="col-md-6">
                         <label class="labels">Created Account</label>

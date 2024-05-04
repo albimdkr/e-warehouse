@@ -31,11 +31,11 @@
           <div class=" collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ms-auto ">
               <li class="nav-item">
-                <a class="nav-link mx-2" aria-current="page" href="{{ url('/') }}">Home</a>
+                <a class="nav-link mx-2" aria-current="page" href="{{ url('/') }}">Back</a>
               </li>
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                   <a class="nav-link mx-2" aria-current="page" href="{{ route('register') }}">Register</a>
-              </li>
+              </li> --}}
           </div>
       </div>
   </nav>
@@ -82,9 +82,9 @@
                     <button type="submit" class="btn btn-primary btn-block btn-user">Login</button>
                   </form>
                   <hr>
-                  <div class="text-center">
+                  {{-- <div class="text-center">
                     <a class="small" href="{{ route('register') }}">Create an Account!</a>
-                  </div>
+                  </div> --}}
                 </div>
               </div>
             </div>

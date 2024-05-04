@@ -34,10 +34,7 @@
         <div class=" collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto ">
             <li class="nav-item">
-                <a class="nav-link mx-2" aria-current="page" href="{{ url('/') }}">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link mx-2" aria-current="page" href="{{ route('login') }}">login</a>
+                <a class="nav-link mx-2" aria-current="page" href="{{ url('/') }}">Dashboard</a>
             </li>
         </div>
     </div>
@@ -87,7 +84,6 @@
                   <select class="form-control @error('role')is-invalid @enderror" id="role" name="role">
                       <option value="">Pilih Role</option>
                       <option value="Operator">Operator</option>
-                      <option value="Marketing">Marketing</option>
                   </select>
                   @error('role')
                     <span class="invalid-feedback">{{ $message }}</span>
@@ -96,9 +92,9 @@
                 <button type="submit" class="btn btn-primary btn-user btn-block">Register Account</button>
               </form>
               <hr>
-              <div class="text-center">
+              {{-- <div class="text-center">
                 <a class="small" href="{{ route('login') }}">Already have an account? Login!</a>
-              </div>
+              </div> --}}
             </div>
           </div>
         </div>
